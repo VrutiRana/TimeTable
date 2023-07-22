@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\WorkingHoursController::class, 'index'])->name('working-hours');
+Route::post('/store_workdays', [\App\Http\Controllers\WorkingHoursController::class, 'store']);
+Route::post('/store_subjects', [\App\Http\Controllers\SubjectController::class, 'store']);
+Route::get('/showData/{$id}', [\App\Http\Controllers\SubjectController::class,'index'])->name('showData');
+
