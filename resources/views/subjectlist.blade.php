@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Tournament</title>
+    <title>Time Table</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -33,10 +33,9 @@
                 <table class="table">
                     <tbody>
                     @if(!$subjects->isEmpty())
-                        <?php for ($row = 0; $row < $weekdays->working_days; $row++): ?>
+                        <?php for ($row = 0; $row < $weekdays->subjects_per_days; $row++): ?>
                         <tr>
-                            <td>{{$subjects[$row]->subject}}</td>
-                            @for ($col = 0; $col < $weekdays->subjects_per_days; $col++)
+                            @for ($col = 0; $col < $weekdays->working_days; $col++)
                             <td>{{$subjects[$row]->subject}}</td>
                             @endfor
                         </tr>
